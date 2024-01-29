@@ -39,9 +39,6 @@ function getPlayerChoice(){
     return player
 }
 
-let computer=getComputerChoice();
-let player= getPlayerChoice();
-
 function round(computerSelection, playerSelection){
     console.log(`You played ${playerSelection}`)
     console.log(`Computer played ${computerSelection}`)
@@ -49,43 +46,82 @@ function round(computerSelection, playerSelection){
         case "rock":
             switch(computerSelection){
                 case "rock":
-                    console.log(`It's a Tie!`)
+                    console.log(`It's a Tied round!`)
+                    return 0
                     break;
                 case "paper":
-                    console.log(`${computerSelection} beats ${playerSelection}, You Lose!`)
+                    console.log(`${computerSelection} beats ${playerSelection}, You Lost the round!`)
+                    return -1
                     break;
                 case "scissors":
-                    console.log(`${playerSelection} beats ${computerSelection}, You Win!`)
+                    console.log(`${playerSelection} beats ${computerSelection}, You Won the round!`)
+                    return 1
                     break;
             }
             break;
         case "paper":
             switch(computerSelection){
                 case "rock":
-                    console.log(`${playerSelection} beats ${computerSelection}, You Win!`)
+                    console.log(`${playerSelection} beats ${computerSelection}, You Won the round!`)
+                    return 1
                     break;
                 case "paper":
-                    console.log(`It's a Tie!`)
+                    console.log(`It's a Tied round!`)
+                    return 0
                     break;
                 case "scissors":
-                    console.log(`${computerSelection} beats ${playerSelection}, You Lose!`)
+                    console.log(`${computerSelection} beats ${playerSelection}, You Lost the round!`)
+                    return -1
                     break;
             }
             break;
         case "scissors":
             switch(computerSelection){
                 case "rock":
-                    console.log(`${computerSelection} beats ${playerSelection}, You Lose!`)
+                    console.log(`${computerSelection} beats ${playerSelection}, You Lost the round!`)
+                    return -1
                     break;
                 case "paper":
-                        console.log(`${playerSelection} beats ${computerSelection}, You Win!`)
+                        console.log(`${playerSelection} beats ${computerSelection}, You Won the round!`)
+                        return 1
                     break;
                 case "scissors":
-                    console.log(`It's a Tie!`)
+                    console.log(`It's a Tied round!`)
+                    return 0
                     break;
             }
             break;
     }
 }
-
-round(computer,player);
+function playGame(){
+    let player
+    let computer
+    let roundResult
+    let playerScore=0
+    let computerScore=0
+    for(let i=0;i<5;i++){
+        player=getPlayerChoice()
+        computer=getComputerChoice()
+        roundResult=round(computer,player)
+        switch(roundResult){
+            case 0:
+                break;
+            case 1:
+                playerScore++
+                break;
+            case -1:
+                computerScore++
+                break;
+        }
+        if(computerScore==3||playerScore==3)
+            break;
+    }
+    if(computerScore==playerScore){
+        console.log(`GG it was a tied game! score: ${playerScore} - ${computerScore}`)
+    }else if(playerScore>computerScore){
+        console.log(`GG You Won the game! score: ${playerScore} - ${computerScore}`)
+    }else{
+        console.log(`GG You Lost the game! score: ${playerScore} - ${computerScore}`)
+    }
+}
+playGame()
