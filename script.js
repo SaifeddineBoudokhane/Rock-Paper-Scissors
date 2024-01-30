@@ -33,7 +33,7 @@ function getComputerChoice(){
 function getPlayerChoice(){
     let player;
     do {
-        player= prompt("Rock, Paper or Scissors ?","rock");
+        //player= prompt("Rock, Paper or Scissors ?","rock");
         player=player.toLowerCase();
     } while (player!="rock"&&player!="paper"&&player!="scissors");
     return player
