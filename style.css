@@ -2,6 +2,7 @@
 :root{
     --font-honk: 'Honk', system-ui;
     --font-robot: 'Roboto', sans-serif;
+
     --color-main1 : #000000;
     --color-main2 : #FF3EAF;
     --color-main3 : #75abbc;
@@ -10,7 +11,7 @@
 }
 body{
     align-items: center;
-    background-color: var(--color-main4);
+    background-color: var(--color-main3);
     display: flex;
     flex-direction: column;
 }
@@ -25,24 +26,29 @@ body{
     font-size: 70px;
     line-height: 1;
 }
+
+p{
+    color: var(--color-main2);
+    font-family: var(--font-robot);
+    font-size: 30px;
+    font-weight: 900;
+    padding: 10px 40px;
+    text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
 /* Top Section */
 
 .top{
     text-align: center;
 }
 
-
 /* Middle section */
 
 .middle{
     text-align: center;
-}
-p{
-    color: var(--color-main5);
-    font-family: var(--font-robot);
-    font-size: 30px;
-    font-weight: 900;
-    padding: 10px 40px;
 }
 .score{
     padding: 20px;
@@ -56,16 +62,36 @@ p{
 }
 
 /* Bottom Section */
-
+.bottom{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
 .buttons{
     margin: 10px 0;
 }
+
 button{
-    font-family: var(--font-honk);
-    width: 170px;
-    height: 50px;
-    font-size: 40px;
-    line-height: 0;
-    border-radius: 10px;
     border: 2px solid var(--color-main1);
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: var(--font-honk);
+    font-size: 40px;
+    height: 50px;
+    line-height: 0;
+    width: 170px;
+}
+
+.result-text{
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 460px;
+}
+.result-text>p{
+    font-size: 22px;
+    padding: 0;
 }
