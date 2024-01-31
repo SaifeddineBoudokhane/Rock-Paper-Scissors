@@ -19,20 +19,21 @@ body{
 /* All Sections */
 
 .section{
-    width: 900px;
+    width: 700px;
 }
 .title{
     font-family: var(--font-honk);
-    font-size: 70px;
+    font-size: 60px;
     line-height: 1;
 }
 
 p{
     color: var(--color-main5);
     font-family: var(--font-robot);
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 900;
-    padding: 10px 40px;
+    padding: 10px;
+
     text-shadow:
     -1px -1px 0 black,
      1px -1px 0 black,
@@ -51,7 +52,7 @@ p{
     text-align: center;
 }
 .score{
-    padding: 20px;
+    padding: 10px;
 }
 .score > div{
     display: flex;
@@ -66,7 +67,7 @@ p{
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
 }
 .buttons{
@@ -79,7 +80,7 @@ button{
     cursor: pointer;
     font-family: var(--font-honk);
     font-size: 40px;
-    height: 50px;
+    height: 45px;
     line-height: 0;
     width: 170px;
 }
