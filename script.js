@@ -40,17 +40,17 @@ function getRoundResult(computerSelection, playerSelection){
             switch(computerSelection){
                 case "rock":
                     resultText.textContent=""
-                    resultText.textContent=`It's a Tied round! ${gameEndText}`
+                    resultText.textContent=`It's a Tied round!`
                     return 0
                     break;
                 case "paper":
                     resultText.textContent=""
-                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round ${gameEndText}!`
+                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round!`
                     return -1
                     break;
                 case "scissors":
                     resultText.textContent=""
-                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round ${gameEndText}!`
+                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round!`
                     return 1
                     break;
             }
@@ -59,17 +59,17 @@ function getRoundResult(computerSelection, playerSelection){
             switch(computerSelection){
                 case "rock":
                     resultText.textContent=""
-                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round! ${gameEndText}`
+                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round!`
                     return 1
                     break;
                 case "paper":
                     resultText.textContent=""
-                    resultText.textContent=`It's a Tied round! ${gameEndText}`
+                    resultText.textContent=`It's a Tied round!`
                     return 0
                     break;
                 case "scissors":
                     resultText.textContent=""
-                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round! ${gameEndText}`
+                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round!`
                     return -1
                     break;
             }
@@ -78,17 +78,17 @@ function getRoundResult(computerSelection, playerSelection){
             switch(computerSelection){
                 case "rock":
                     resultText.textContent=""
-                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round! ${gameEndText}`
+                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round!`
                     return -1
                     break;
                 case "paper":
                     resultText.textContent=""
-                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round! ${gameEndText}`
+                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round!`
                         return 1
                     break;
                 case "scissors":
                     resultText.textContent=""
-                    resultText.textContent=`It's a Tied round! ${gameEndText}`
+                    resultText.textContent=`It's a Tied round!`
                     return 0
                     break;
             }
