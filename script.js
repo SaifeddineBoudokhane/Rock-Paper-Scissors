@@ -1,4 +1,5 @@
 
+//function that generates a random number between min(included) and max(excluded)
 function generateRandom(min = 0, max = 100) {
 
     // find diff
@@ -16,6 +17,7 @@ function generateRandom(min = 0, max = 100) {
     return rand;
 }
 
+//function that choses at random rock=0, paper=1 or scissors=2
 function getComputerChoice(){
     let choice = generateRandom(0,3);
     switch(choice){
@@ -31,34 +33,24 @@ function getComputerChoice(){
     }
 }
 
-// function getPlayerChoice(){
-//     let player;
-//     do {
-//         //player= prompt("Rock, Paper or Scissors ?","rock");
-//         player=player.toLowerCase();
-//     } while (player!="rock"&&player!="paper"&&player!="scissors");
-//     return player
-// }
-
-function round(computerSelection, playerSelection){
-    console.log(`You played ${playerSelection}`)
-    console.log(`Computer played ${computerSelection}`)
+//function that decides who won the round
+function getRoundResult(computerSelection, playerSelection){
     switch(playerSelection){
         case "rock":
             switch(computerSelection){
                 case "rock":
                     resultText.textContent=""
-                    resultText.textContent=`It's a Tied round!`
+                    resultText.textContent=`It's a Tied round! ${gameEndText}`
                     return 0
                     break;
                 case "paper":
                     resultText.textContent=""
-                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round!`
+                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round ${gameEndText}!`
                     return -1
                     break;
                 case "scissors":
                     resultText.textContent=""
-                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round!`
+                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round ${gameEndText}!`
                     return 1
                     break;
             }
@@ -67,17 +59,17 @@ function round(computerSelection, playerSelection){
             switch(computerSelection){
                 case "rock":
                     resultText.textContent=""
-                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round!`
+                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round! ${gameEndText}`
                     return 1
                     break;
                 case "paper":
                     resultText.textContent=""
-                    resultText.textContent=`It's a Tied round!`
+                    resultText.textContent=`It's a Tied round! ${gameEndText}`
                     return 0
                     break;
                 case "scissors":
                     resultText.textContent=""
-                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round!`
+                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round! ${gameEndText}`
                     return -1
                     break;
             }
@@ -86,17 +78,17 @@ function round(computerSelection, playerSelection){
             switch(computerSelection){
                 case "rock":
                     resultText.textContent=""
-                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round!`
+                    resultText.textContent=`${computerSelection} beats ${playerSelection}, You Lost the round! ${gameEndText}`
                     return -1
                     break;
                 case "paper":
                     resultText.textContent=""
-                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round!`
+                    resultText.textContent=`${playerSelection} beats ${computerSelection}, You Won the round! ${gameEndText}`
                         return 1
                     break;
                 case "scissors":
                     resultText.textContent=""
-                    resultText.textContent=`It's a Tied round!`
+                    resultText.textContent=`It's a Tied round! ${gameEndText}`
                     return 0
                     break;
             }
@@ -104,97 +96,70 @@ function round(computerSelection, playerSelection){
     }
 }
 
-// function playGame(){
-//     let player
-//     let computer
-//     let roundResult
-//     let playerScore=0
-//     let computerScore=0
-//     for(let i=0;i<5;i++){
-//         player=getPlayerChoice()
-//         computer=getComputerChoice()
-//         roundResult=round(computer,player)
-//         switch(roundResult){
-//             case 0:
-//                 break;
-//             case 1:
-//                 playerScore++
-//                 break;
-//             case -1:
-//                 computerScore++
-//                 break;
-//         }
-//         if(computerScore==3||playerScore==3)
-//             break;
-//     }
-//     if(computerScore==playerScore){
-//         console.log(`GG it was a tied game! score: ${playerScore} - ${computerScore}`)
-//     }else if(playerScore>computerScore){
-//         console.log(`GG You Won the game! score: ${playerScore} - ${computerScore}`)
-//     }else{
-//         console.log(`GG You Lost the game! score: ${playerScore} - ${computerScore}`)
-//     }
-// }
-function checkRoundEnd(){
-    if(roundNumber>5){
-        if(computerScore>playerScore){
-            computerScore=1;
-            playerScore=0;
-        }else if(computerScore<playerScore){
-            playerScore=1;
-            computerScore=0;
-        }else{
-            playerScore=0;
-            computerScore=0;
+//function that changes the game score
+function changeGameScore(){
+    gameScore.textContent=`${computerScoreGame} - ${playerScoreGame}`
+}
+
+//function that check is the best of 5 game ended and chooses the winner
+function checkGameEnd(){
+    if(roundNumber==5||computerScoreRound==3||playerScoreRound==3){
+        if(computerScoreRound>playerScoreRound){
+            computerScoreGame++;
+            changeGameScore()
+        }else if(computerScoreRound<playerScoreRound){
+            playerScoreGame++;
+            changeGameScore();
         }
-        roundNumber=1;
+        playerScoreRound=0;
+        computerScoreRound=0;
     }
 }
 
+//function that changes the round score after checking if the game ended
 function changeRoundScore(){
-    checkRoundEnd();
-    roundScore.textContent=`${computerScore} - ${playerScore}`
+    checkGameEnd();
+    roundScore.textContent=`${computerScoreRound} - ${playerScoreRound}`
 }
 
-// function changeGameScore(result){
-//     switch(result){
-//         case 1:
-//             gameScore
-//     }
-// }
-function playGame(result){
+//function that plays round you hit a button
+function playRound(result){
     if(result==1){
-        playerScore++;
-        changeRoundScore();
+        playerScoreRound++;
     }else if(result==-1){
-        computerScore++;
-        changeRoundScore();
+        computerScoreRound++;
     }
+    changeRoundScore();
 }
 
+//variables
 const gameScore=document.querySelector(".game-result")
 const roundScore=document.querySelector(".round-result")
 const buttonRock=document.getElementById("rock")
 const buttonPaper=document.getElementById("paper")
 const buttonScissors=document.getElementById("scissors")
 const resultText= document.getElementById("result-text")
-let computerScore=0;
-let playerScore=0;
+let computerScoreRound=0;
+let playerScoreRound=0;
 let roundNumber=0;
+let computerScoreGame=0;
+let playerScoreGame=4564;
+
+//event listeners
 buttonRock.addEventListener("click",function(){
-    let result=round(getComputerChoice(),"rock")
+    let result=getRoundResult(getComputerChoice(),"rock")
     roundNumber++
-    playGame(result)
+    playRound(result)
 })
 
 buttonPaper.addEventListener("click",function(){
-    let result=round(getComputerChoice(),"paper")
+    let result=getRoundResult(getComputerChoice(),"paper")
     roundNumber++
-    playGame(result)
+    playRound(result)
 })
 
 buttonScissors.addEventListener("click",function(){
-    let result=round(getComputerChoice(),"scissors")
+    let result=getRoundResult(getComputerChoice(),"scissors")
     roundNumber++
-    playGame(result)
+    playRound(result)
 })
