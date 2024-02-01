@@ -19,7 +19,7 @@ body{
 /* All Sections */
 
 .section{
-    width: 300px;
+    width: 340px;
 }
 .title{
     font-family: var(--font-honk);
@@ -96,6 +96,7 @@ button{
     width: 300px;
 }
 #result-text{
-    font-size: 15px;
+    text-align: center;
+    font-size: 12px;
     padding: 0;
 }
