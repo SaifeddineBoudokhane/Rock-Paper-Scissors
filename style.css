@@ -19,11 +19,11 @@ body{
 /* All Sections */
 
 .section{
-    width: 700px;
+    width: 300px;
 }
 .title{
     font-family: var(--font-honk);
-    font-size: 60px;
+    font-size: 30px;
     line-height: 1;
 }
 
@@ -32,7 +32,7 @@ p{
     font-family: var(--font-robot);
     font-size: 20px;
     font-weight: 900;
-    padding: 10px;
+    padding: 5px;
 
     text-shadow:
     -1px -1px 0 black,
@@ -52,14 +52,14 @@ p{
     text-align: center;
 }
 .score{
-    padding: 10px;
+    padding: 5px;
 }
 .score > div{
     display: flex;
     justify-content: center;
 }
 .result{
-    min-width: 150px;
+    min-width: 100px;
 }
 
 /* Bottom Section */
@@ -67,11 +67,14 @@ p{
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
 }
 .buttons{
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 button{
@@ -79,20 +82,20 @@ button{
     border-radius: 10px;
     cursor: pointer;
     font-family: var(--font-honk);
-    font-size: 40px;
-    height: 45px;
+    font-size: 30px;
+    height: 40px;
     line-height: 0;
-    width: 170px;
+    width: 130px;
 }
 
 .result-text{
     align-items: center;
     display: flex;
-    height: 50px;
+    height: 30px;
     justify-content: center;
-    width: 460px;
+    width: 300px;
 }
 #result-text{
-    font-size: 22px;
+    font-size: 15px;
     padding: 0;
 }
